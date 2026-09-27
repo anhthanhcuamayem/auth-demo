@@ -1,0 +1,86 @@
+<!doctype html>
+<html lang="vi">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="description" content="Đăng nhập và đăng ký tài khoản an toàn với Supabase." />
+    <title>Halo — Đăng nhập</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Space+Grotesk:wght@500;600;700&display=swap" rel="stylesheet" />
+    <link rel="stylesheet" href="/styles.css" />
+    <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+  </head>
+  <body>
+    <div class="glow glow-one"></div>
+    <div class="glow glow-two"></div>
+
+    <main class="shell">
+      <section class="brand-panel">
+        <div class="brand-mark" aria-hidden="true"><span></span><span></span><span></span></div>
+        <p class="eyebrow">HALO / PRIVATE SPACE</p>
+        <h1>Nơi bắt đầu<br /><em>những điều lớn.</em></h1>
+        <p class="brand-copy">Một không gian đơn giản, riêng tư và luôn sẵn sàng cho bước tiếp theo của bạn.</p>
+        <div class="status-pill"><span class="status-dot"></span> Kết nối bảo mật với Supabase</div>
+        <div class="brand-footer"><span>© 2025 Halo</span><span>Được xây dựng cho bạn</span></div>
+      </section>
+
+      <section class="auth-panel">
+        <div id="auth-view">
+          <div class="mobile-logo"><div class="brand-mark" aria-hidden="true"><span></span><span></span><span></span></div><span>HALO</span></div>
+          <div class="auth-heading">
+            <p class="eyebrow" id="form-eyebrow">WELCOME BACK</p>
+            <h2 id="form-title">Chào mừng trở lại</h2>
+            <p id="form-subtitle">Đăng nhập để tiếp tục hành trình của bạn.</p>
+          </div>
+
+          <div class="tabs" role="tablist" aria-label="Tài khoản">
+            <button class="tab active" id="login-tab" data-mode="login" role="tab" aria-selected="true">Đăng nhập</button>
+            <button class="tab" id="signup-tab" data-mode="signup" role="tab" aria-selected="false">Tạo tài khoản</button>
+          </div>
+
+          <form id="auth-form" novalidate>
+            <div class="field name-field hidden">
+              <label for="name">Tên của bạn</label>
+              <input id="name" name="name" type="text" autocomplete="name" placeholder="Nguyễn Văn A" />
+            </div>
+            <div class="field">
+              <label for="email">Email</label>
+              <input id="email" name="email" type="email" autocomplete="email" placeholder="ban@example.com" required />
+            </div>
+            <div class="field">
+              <div class="label-row"><label for="password">Mật khẩu</label><span class="password-hint">Tối thiểu 6 ký tự</span></div>
+              <div class="password-wrap">
+                <input id="password" name="password" type="password" autocomplete="current-password" placeholder="••••••••" required minlength="6" />
+                <button type="button" class="show-password" aria-label="Hiện mật khẩu">Hiện</button>
+              </div>
+            </div>
+            <div class="field confirm-field hidden">
+              <label for="confirm-password">Nhập lại mật khẩu</label>
+              <input id="confirm-password" name="confirm-password" type="password" autocomplete="new-password" placeholder="••••••••" minlength="6" />
+            </div>
+            <div class="form-options">
+              <label class="check-label"><input id="remember" type="checkbox" checked /><span class="custom-check"></span>Ghi nhớ đăng nhập</label>
+              <button type="button" class="text-button hidden" id="forgot-button">Quên mật khẩu?</button>
+            </div>
+            <button class="primary-button" id="submit-button" type="submit"><span id="submit-label">Đăng nhập</span><span class="spinner hidden"></span></button>
+            <p class="message" id="form-message" role="status"></p>
+          </form>
+
+          <p class="terms">Bằng việc tiếp tục, bạn đồng ý với <a href="#">Điều khoản</a> và <a href="#">Chính sách riêng tư</a>.</p>
+        </div>
+
+        <div id="dashboard-view" class="hidden dashboard">
+          <div class="success-icon">✓</div>
+          <p class="eyebrow">YOUR PRIVATE SPACE</p>
+          <h2>Xin chào, <span id="user-name">bạn</span>!</h2>
+          <p class="dashboard-copy">Bạn đã đăng nhập thành công. Đây là khu vực riêng của bạn.</p>
+          <div class="account-card"><div class="avatar" id="user-avatar">B</div><div><strong id="user-email">email@example.com</strong><small>Tài khoản đã xác thực</small></div><span class="verified">●</span></div>
+          <button class="secondary-button" id="logout-button">Đăng xuất</button>
+        </div>
+      </section>
+    </main>
+
+    <script src="/app.js"></script>
+  </body>
+</html>
